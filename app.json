@@ -8,7 +8,14 @@
     "scheme": "connect",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "infoPlist": {
+      "NSPhotoLibraryUsageDescription": "This app needs access to your photos to attach images to messages.",
+      "NSCameraUsageDescription": "This app needs access to the camera to take photos for messages.",
+      "NSPhotoLibraryAddUsageDescription": "This app needs permission to save photos to your library.",
+      "NSMicrophoneUsageDescription": "This app needs access to the microphone for recording audio (if/when used)."
+    },
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.Connect"
     },
     "android": {
       "adaptiveIcon": {
@@ -17,24 +24,48 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.Connect"
     },
     "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "output": "server",
+      "favicon": "./assets/images/favicon.png",
+      "bundler": "metro"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "android": {
-            "image": "./assets/images/splash-icon.png",
-            "imageWidth": 76
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "@stream-io/video-react-native-sdk",
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "cameraPermission": "$(PRODUCT_NAME) requires camera access",
+          "microphonePermission": "$(PRODUCT_NAME) requires microphone access"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24
+          }
+        }
+      ],
+
+      "expo-web-browser",
+      "@stream-io/video-react-native-sdk",
+      "expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true,
