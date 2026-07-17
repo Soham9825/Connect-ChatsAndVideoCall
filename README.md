@@ -1,50 +1,68 @@
-# Welcome to your Expo app 👋
+# Mobile App (Expo + Clerk + Stream)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern, high-performance mobile application built with **Expo (React Native)**, featuring secure user authentication via **Clerk**, and real-time communication powered by **GetStream**.
 
-## Get started
+## Features
 
-1. Install dependencies
+*   **Authentication:** Secure, seamless user authentication (OAuth, Email/Password) via Clerk.
+*   **Real-time Communication:** High-fidelity chat or video feeds powered by Stream.
+*   **Cross-Platform:** Shared codebase for seamless performance on both iOS and Android.
+*   **Expo Router:** File-based routing for native navigation.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## Tech Stack
 
-   ```bash
-   npx expo start
-   ```
+*   **Framework:** [Expo](https://expo.dev/) (React Native)
+*   **Authentication:** [Clerk](https://clerk.com/)
+*   **Real-time Infrastructure:** [GetStream](https://getstream.io/)
+*   **Language:** TypeScript
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Prerequisites
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Before setting up the project locally, ensure you have the following installed:
 
-## Get a fresh project
+*   [Node.js](https://nodejs.org/) (v18 or higher recommended)
+*   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) / [pnpm](https://pnpm.io/)
+*   [Expo Go](https://expo.dev/go) app installed on your physical device, or an iOS Simulator / Android Emulator.
 
-When you're ready, run:
+---
 
+## Getting Started
+
+Follow these steps to set up the project locally.
+
+### 1. Clone the Repository
 ```bash
-npm run reset-project
+git clone [https://github.com/Soham9825/Connect-ChatsAndVideoCall.git](https://github.com/Soham9825/Connect-ChatsAndVideoCall.git)
+cd CONNECT 
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
+### 2. Install Dependencies
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3. Environment Setup
+```bash
+Create a file named .env.local in the root directory of your project and paste the following environment variables. Replace the key placeholders with your actual credentials from the Clerk and GetStream dashboards.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# Clerk Authentication Keys
+EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key_here
 
-## Join the community
+# GetStream Live Keys
+EXPO_PUBLIC_STREAM_API_KEY=your_stream_api_key_here
+STREAM_SECRET_KEY=your_stream_secret_key_here
+```
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 4. Run the Application
+```bash
+npx expo start
+```

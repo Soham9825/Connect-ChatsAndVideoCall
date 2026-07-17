@@ -96,7 +96,6 @@ const ChatClientWithHook = ({
     }
   };
 
-  // Call hook unconditionally at top level
   const chatClient = useCreateChatClient({
     apiKey: STREAM_API_KEY,
     userData: {
